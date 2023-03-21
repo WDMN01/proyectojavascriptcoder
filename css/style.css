@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+#main{
+    width: auto;
+    height: auto;
+}
+body{
+    background-color: rgb(29, 28, 42);
+}
+header{
+    display: grid;
+    grid-area: header;
+    grid-template-rows: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    padding: 30px;
+    border: 1px solid black;
+    height: 20%;
+}
+#inputHeader{
+    width: 500px;
+    height: 30px;
+}
+nav{
+    display: grid;
+    grid-area: nav;
+    grid-template-rows: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    padding: 30px;
+    border: 1px solid black;
+    height: auto;
+    justify-content: space-around;
+} 
+#jm, #did, #lan, #ho, #beb, #ext{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: auto;
+    height: 30px;
+    transition: 1s;
+    background-color: none;
+    color: white;    
+}
+.pg1, .pg2, .pg3, .pg4, .pg5, .pg6{
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: none;
+}
+
+section{
+    display: grid;
+    grid-area: section;
+    grid-template-rows: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    border: 1px solid black;
+    height: auto;
+}
+.carrusel{
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: none;
+}
+footer{
+    display: grid;
+    grid-area: footer;
+    grid-template-rows: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    padding: 30px;
+    border: 1px solid black;
+    height: 20%;
+    
+}
+#fb, #ig, #tw, .redc, .contacto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: auto;
+    height: 30px;
+    transition: 1s;
+    background-color: none;
+    color: gray;
+}
+.redf, .redi, .redt, .redc{
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: none;
+}
+@media screen and (min-width: 880px) {
+    #main {
+        grid-template-columns: auto;
+        grid-template-areas: "header" "nav" "section" "footer";
+        border: 1px solid black;
+    }
+
+
+
+
+
+}
+
+
+
+
