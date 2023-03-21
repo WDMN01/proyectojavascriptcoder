@@ -3,10 +3,15 @@ let juegomesa1= 100000;
 let juegomesa2= 85000;
 let juegolanzador1= 55000;
 let juegoexterior1= 120000;
-const producto= 
-    {nombre:"tio_rico", valor: 100000};
+const producto= [
+    {nombre:"tio_rico", valor: 100000}, 
+    {nombre:"balon", valor:"40000"}, 
+    {nombre:"funko_spiderman", valor:"65000"}];
 let iva=0.19;
+let encontrar;
+let paso;
 
+//alert(''+paso);
 let costenvio= 0;
 let nombre = prompt("Cual es tu nombre");
 let car;
@@ -14,10 +19,13 @@ let envio = prompt("¿Desea agregar un producto al carrito? S/N")
 while(envio != "N"){
     if (envio == "S"){
         let productoin = prompt("¿Que producto desea agregar al carrito?");
-        if(producto.nombre == productoin){
-            car= parseInt(producto.valor, 10);
+        encontrar = producto.some(x => x.nombre == productoin);
+        alert(''+encontrar);
+        if(encontrar == true){
+            paso= producto.find(x => x.nombre == productoin);
+            car= parseInt(paso.valor, 10);
             carrito+=car;
-            alert('producto agregado +$' +producto.valor);
+            alert('producto agregado +$' +car);
             alert('Total en carrito $ '+carrito);
 
          }else{
