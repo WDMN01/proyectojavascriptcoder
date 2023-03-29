@@ -75,6 +75,27 @@ section{
     justify-content: space-between;
     border: none;
 }
+#container {
+    display: flex;
+    width: auto;
+    height: auto;
+    flex-wrap: wrap;
+}
+
+.card {
+    margin: 2rem;
+    height: 450px;
+    width: 250px;
+    border: 2px solid gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card img {
+    max-height: 10rem;
+}
 footer{
     display: grid;
     grid-area: footer;
