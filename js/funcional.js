@@ -9,6 +9,7 @@ let carroalamacenado;
 let capacidad ={};
 let total;
 let recupercarro;
+let carritocontent;
 const modalcontainer = document.getElementById("modal-container");
 document.addEventListener('DOMContentLoaded', ()=>{
    fetchData()
@@ -46,25 +47,25 @@ function generateproducto(id, nombre, imagen, cantidad, precio){
          <img src="${imagen}">
          <h3>Disponible ${cantidad} unidades</h3>
          <p>Precio: ${precio}</p>
-         <button class= "btn-dark" id="${id}" onclick="agregaralcarrito('${nombre}','${precio}')" >Agregar al carrito</button>
+         <button class= "btn-dark" id="${id}" onclick="agregaralcarrito('${imagen}','${nombre}','${precio}')" >Agregar al carrito</button>
       </div>
    `;
 }
 recupercarro=  JSON.parse(localStorage.getItem('carroalmacenado'));
    
-function agregaralcarrito(nombre, precio){
+function agregaralcarrito(imagen, nombre, precio){
 
-   carrocompra.unshift({nombre, precio});
+   carrocompra.unshift({imagen,nombre, precio});
    
    //console.log(nombre)
    //console.log(precio)
    let carritomarkup =`<h2 class="titulocarrito">Carrito</h2><ul>`;
-   function generateprodcarrito(nombre, precio){
-      return `<li class="productos">${nombre, precio}</li>`;
+   function generateprodcarrito(imagen, nombre, precio){
+      return `<li class="productos">${imagen, nombre, precio}</li>`;
       
    }
    for (let prodencarrito of carrocompra){
-      carritomarkup += generateprodcarrito(prodencarrito.nombre, prodencarrito.precio0);
+      carritomarkup += generateprodcarrito(prodencarrito.imagen,prodencarrito.nombre, prodencarrito.precio0);
       
    }
    carritomarkup += `</ul>`;
@@ -74,34 +75,31 @@ function agregaralcarrito(nombre, precio){
    recupercarro=  JSON.parse(localStorage.getItem('carroalmacenado'));
    console.log(nombre,precio)
    
-   vercarrito.addEventListener("click", () => {
-      recupercarro=  JSON.parse(localStorage.getItem('carroalmacenado'));
-      //console.log(nombre)
-      const headercarrito = document.createElement("div");
-      headercarrito.innerHTML= `
-         <h1 class=modal-header-title>Carrito</h1>
-      `
-      modalcontainer.append(headercarrito);
-      const modalbutton =document.createElement("h1");
-      modalbutton.innerText = "X";
-      modalbutton.className = "modal-header-button";
-      
-      headercarrito.append(modalbutton);
-      console.log(recupercarro);
-       recupercarro.forEach((el) =>{
-         let carritocontent= document.createElement("div");
-         console.log(nombre)
-         recupercarro.className = "modal-content";
-         recupercarro.innerHTML = `
-         <h3>${nombre}</h3>
-         <p>${precio} $</p>
-         `;
-         console.log(nombre)
-         modalcontainer.append(carritocontent);
-         
-       })
-       
-   });
+   
 }
-
-
+vercarrito.addEventListener("click", () => {
+   recupercarro=  JSON.parse(localStorage.getItem('carroalmacenado'));
+   //console.log(nombre)
+   const modalHeader = document.createElement("div");
+   modalHeader.innerHTML= `
+      <h1 class=modal-header-title>Carrito</h1>
+   `
+   modalcontainer.append(modalHeader);
+   const modalbutton =document.createElement("h1");
+   modalbutton.innerText = "X";
+   modalbutton.className = "modal-header-button";
+   
+   modalHeader.append(modalbutton);
+   for(let el of recupercarro) {
+      carritocontent= document.createElement("div");
+      carritocontent.className = "modal-content";
+      carritocontent.innerHTML = `
+      <img src="${el.imagen}">
+      <h3>${el.nombre}</h3>
+      <p>${el.precio} </p>
+      `;
+      console.log(el.imagen,el.nombre,el.precio)
+      modalcontainer.append(carritocontent);    
+    }
+    
+});
