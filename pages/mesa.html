@@ -13,8 +13,13 @@
 <body>
     <div  id="main"></div>
         <header>
-            <a href="../index.html" ><img src="../imagenes/megatoyslogo.png" class="logo"></a>
-            <input id="inputHeader" class="col-md-4" type="search" placeholder="Buscar...">   
+           <div class="nav-container">
+                <nav class="navbar">
+                    <h1 class="nav-logo"> <a href="../index.html" ><img src="../imagenes/megatoyslogo.png" class="logo"></a></h1>
+                    <input id="inputHeader" class="col-md-4" type="search" placeholder="Buscar...">
+                    <h1 class="ver-carrito" id="vercarrito"><img src="../imagenes/carrito.png" class="iconcar"></h1>
+                </nav>
+            </div>
         </header>
         <nav class="menu" >    
             <button class="pg1"><a href="mesa.html" id="jm"><h1>Juegos de mesa</h1></a></button>
@@ -25,9 +30,15 @@
         <section>
             <div id="container">
 
+                <div class="row" id="items"><button onclick="ejecutar()"></button></div>
+
             </div>
+            
             <div id="carrito"></div>
+
+            
         </section>
+        <div id="modal-container" class="modal-container"></div>
         <footer>
             <button class="redc"><a href="contacto.html" class="contacto" target="_blank"><h3>Contacto</h3></a></button>
             <button class="redf"><a href="https://es-la.facebook.com/" target="_blank"><img src="../imagenes/fb.png" id="fb"></a></button>

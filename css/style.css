@@ -21,6 +21,22 @@ header{
     border: 1px solid black;
     height: 20%;
 }
+.navbar{
+    width: 100%;
+}
+h1{
+    color: white;
+}
+.iconcarrito{
+width: 70px;
+height: 70px;
+background-color: transparent;
+border: none;
+}
+.iconcar{
+width: 70px;
+height: 70px;
+}
 #inputHeader{
     width: 500px;
     height: 30px;
@@ -80,6 +96,9 @@ section{
     width: auto;
     height: auto;
     flex-wrap: wrap;
+}
+.titulocarrito, .productos{
+    color: white;
 }
 
 .card {
