@@ -59,16 +59,16 @@ function agregaralcarrito(imagen, nombre, precio){
    
    //console.log(nombre)
    //console.log(precio)
-   let carritomarkup =`<h2 class="titulocarrito">Carrito</h2><ul>`;
+   let carritomarkup;
    function generateprodcarrito(imagen, nombre, precio){
-      return `<li class="productos">${imagen, nombre, precio}</li>`;
+      
       
    }
    for (let prodencarrito of carrocompra){
       carritomarkup += generateprodcarrito(prodencarrito.imagen,prodencarrito.nombre, prodencarrito.precio0);
       
    }
-   carritomarkup += `</ul>`;
+   
    carritoel.innerHTML = carritomarkup;
    console.log(carrocompra)
    carroalamacenado = localStorage.setItem('carroalmacenado',JSON.stringify(carrocompra))
