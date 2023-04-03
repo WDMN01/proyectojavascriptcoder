@@ -21,8 +21,12 @@ header{
     border: 1px solid black;
     height: 20%;
 }
-.navbar{
+.nav-container{
     width: 100%;
+    border: none;
+}
+.navbar{
+    border: none;
 }
 h1{
     color: white;
@@ -36,6 +40,9 @@ border: none;
 .iconcar{
 width: 70px;
 height: 70px;
+}
+.tota-compra{
+    color: white;
 }
 #inputHeader{
     width: 500px;
@@ -96,6 +103,7 @@ section{
     width: auto;
     height: auto;
     flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 .titulocarrito, .productos{
     color: white;

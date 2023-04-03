@@ -10,6 +10,10 @@ let capacidad ={};
 let total;
 let recupercarro;
 let carritocontent;
+let acumula = 0;
+let precioint;
+let el;
+let ele;
 const modalcontainer = document.getElementById("modal-container");
 document.addEventListener('DOMContentLoaded', ()=>{
    fetchData()
@@ -30,9 +34,8 @@ const fetchData = async() =>{
 const cards = data =>{
    data.forEach(producto => {
       mark += generateproducto(producto.id, producto.nombre, producto.imagen, producto.cantidad, producto.precio);   
-      //console.log(producto)
-      //int = JSON.parse('{}')
       
+
    });
 
    document.getElementById("container").innerHTML = mark;
@@ -57,8 +60,7 @@ function agregaralcarrito(imagen, nombre, precio){
 
    carrocompra.unshift({imagen,nombre, precio});
    
-   //console.log(nombre)
-   //console.log(precio)
+   
    let carritomarkup;
    function generateprodcarrito(imagen, nombre, precio){
       
@@ -69,7 +71,6 @@ function agregaralcarrito(imagen, nombre, precio){
       
    }
    
-   carritoel.innerHTML = carritomarkup;
    console.log(carrocompra)
    carroalamacenado = localStorage.setItem('carroalmacenado',JSON.stringify(carrocompra))
    recupercarro=  JSON.parse(localStorage.getItem('carroalmacenado'));
@@ -78,8 +79,10 @@ function agregaralcarrito(imagen, nombre, precio){
    
 }
 vercarrito.addEventListener("click", () => {
+   modalcontainer.innerHTML = "";
+   modalcontainer.style.display = "flex";
    recupercarro=  JSON.parse(localStorage.getItem('carroalmacenado'));
-   //console.log(nombre)
+   
    const modalHeader = document.createElement("div");
    modalHeader.innerHTML= `
       <h1 class=modal-header-title>Carrito</h1>
@@ -88,9 +91,14 @@ vercarrito.addEventListener("click", () => {
    const modalbutton =document.createElement("h1");
    modalbutton.innerText = "X";
    modalbutton.className = "modal-header-button";
+
+   modalbutton.addEventListener("click", () =>{
+      modalcontainer.style.display = "none";
+
+   });
    
    modalHeader.append(modalbutton);
-   for(let el of recupercarro) {
+   for( el of recupercarro) {
       carritocontent= document.createElement("div");
       carritocontent.className = "modal-content";
       carritocontent.innerHTML = `
@@ -100,6 +108,12 @@ vercarrito.addEventListener("click", () => {
       `;
       console.log(el.imagen,el.nombre,el.precio)
       modalcontainer.append(carritocontent);    
-    }
-    
+   }
+   
+   const total = recupercarro.reduce((acumula, el) => acumula + parseInt(el.precio, 10), 0);
+   const totalcompra = document.createElement("div")
+   totalcompra.className ="tota-compra"
+   totalcompra.innerHTML = `total a pagar: ${total}`;
+   modalcontainer.append(totalcompra);
+   console.log(total);
 });
