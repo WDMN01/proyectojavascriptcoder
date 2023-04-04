@@ -123,6 +123,61 @@ section{
 .card img {
     max-height: 10rem;
 }
+.carrogeneral{
+    display: flex;
+    justify-content: end;
+    margin-right: 3%;
+}
+.modal-container{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(11, 11, 11);
+    width: 75%;
+    align-items: center;
+}
+.headercarrito{
+    display: flex;
+    justify-content:space-between ;
+    margin-left: 30px;
+    margin-right: 50px;
+    width: 90%;
+}
+.modal-header-button{
+    color: red;
+}
+.modal-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    
+    background-color: rgba(23, 23, 23, 0.818);   
+}
+.imagencarrito{
+    justify-content: baseline;
+    width: 200px;
+    height: 200px;
+    margin-left: 80px;
+    border-radius: 20%;
+    border: 5px solid black;
+}
+.nomprod{
+    color: white;
+    align-self: center;
+}
+.preprod{
+    color: white;
+    font-size:xx-large;
+    align-self: center;
+    margin-right: 3%;
+}
+.tota-compra{
+    font-size: xx-large;
+    color: white;
+    align-self: flex-end;
+    margin-right: 3%;
+}
+
 footer{
     display: grid;
     grid-area: footer;

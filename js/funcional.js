@@ -84,6 +84,7 @@ vercarrito.addEventListener("click", () => {
    recupercarro=  JSON.parse(localStorage.getItem('carroalmacenado'));
    
    const modalHeader = document.createElement("div");
+   modalHeader.className= "headercarrito"
    modalHeader.innerHTML= `
       <h1 class=modal-header-title>Carrito</h1>
    `
@@ -102,9 +103,9 @@ vercarrito.addEventListener("click", () => {
       carritocontent= document.createElement("div");
       carritocontent.className = "modal-content";
       carritocontent.innerHTML = `
-      <img src="${el.imagen}">
-      <h3>${el.nombre}</h3>
-      <p>${el.precio} </p>
+      <img class="imagencarrito" src="${el.imagen}">
+      <h1 class="nomprod">${el.nombre}</h3>
+      <p class="preprod">${el.precio} </p>
       `;
       console.log(el.imagen,el.nombre,el.precio)
       modalcontainer.append(carritocontent);    
@@ -113,7 +114,7 @@ vercarrito.addEventListener("click", () => {
    const total = recupercarro.reduce((acumula, el) => acumula + parseInt(el.precio, 10), 0);
    const totalcompra = document.createElement("div")
    totalcompra.className ="tota-compra"
-   totalcompra.innerHTML = `total a pagar: ${total}`;
+   totalcompra.innerHTML = `Total a pagar: ${total}`;
    modalcontainer.append(totalcompra);
    console.log(total);
 });
