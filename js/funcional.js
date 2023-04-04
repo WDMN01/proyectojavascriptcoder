@@ -1,6 +1,8 @@
 const carritoel = document.getElementById("carrito");
 const items = document.getElementById('items');
 const vercarrito =document.getElementById("vercarrito");
+const suma = document.getElementById("vercarrito");
+
 let mark = '';
 let int = {};
 let carrito= [];
@@ -14,6 +16,13 @@ let acumula = 0;
 let precioint;
 let el;
 let ele;
+let cantidadsel;
+let cantidadtot=0;
+let encontrar;
+let inte;
+let li;
+let elemento;
+let cantidadcarro;
 const modalcontainer = document.getElementById("modal-container");
 document.addEventListener('DOMContentLoaded', ()=>{
    fetchData()
@@ -68,7 +77,7 @@ function agregaralcarrito(imagen, nombre, precio){
    }
    for (let prodencarrito of carrocompra){
       carritomarkup += generateprodcarrito(prodencarrito.imagen,prodencarrito.nombre, prodencarrito.precio0);
-      
+      inte= prodencarrito.nombre
    }
    
    console.log(carrocompra)
@@ -76,8 +85,28 @@ function agregaralcarrito(imagen, nombre, precio){
    recupercarro=  JSON.parse(localStorage.getItem('carroalmacenado'));
    console.log(nombre,precio)
    
+   cantidadtot = 0;
+   for(elemento of recupercarro){
+   encontrar = recupercarro.some(x => x.nombre == inte);
+   if(encontrar == true){
+      cantidadtot +=1;
+   }
+   else{
+      cantidadtot +=0;
+   }
    
+   cantidadcarro =document.getElementById("cantidade");
+   li = document.createElement("h2");
+   li.innerHTML =cantidadtot;
+   cantidadcarro.innerHTML = "";
+   }
+   cantidadcarro.appendChild(li);
+   console.log(cantidadtot)
 }
+
+
+
+
 vercarrito.addEventListener("click", () => {
    modalcontainer.innerHTML = "";
    modalcontainer.style.display = "flex";
@@ -99,18 +128,25 @@ vercarrito.addEventListener("click", () => {
    });
    
    modalHeader.append(modalbutton);
+   
+
+   console.log(inte)
+   console.log("hola"+encontrar);
    for( el of recupercarro) {
       carritocontent= document.createElement("div");
       carritocontent.className = "modal-content";
       carritocontent.innerHTML = `
+      <h1 class="cantidade">Cantidad ${cantidadtot}</h1>
       <img class="imagencarrito" src="${el.imagen}">
-      <h1 class="nomprod">${el.nombre}</h3>
+      <h1 class="nomprod">${el.nombre}</h1>
       <p class="preprod">${el.precio} </p>
       `;
       console.log(el.imagen,el.nombre,el.precio)
-      modalcontainer.append(carritocontent);    
+      modalcontainer.append(carritocontent); 
+      
+
    }
-   
+
    const total = recupercarro.reduce((acumula, el) => acumula + parseInt(el.precio, 10), 0);
    const totalcompra = document.createElement("div")
    totalcompra.className ="tota-compra"

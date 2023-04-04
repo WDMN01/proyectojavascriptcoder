@@ -44,6 +44,14 @@ height: 70px;
 .tota-compra{
     color: white;
 }
+#cantidade{
+    color: white;
+}
+.carritocontador{
+    display: flex;
+    justify-content: space-between;
+    
+}
 #inputHeader{
     width: 500px;
     height: 30px;
