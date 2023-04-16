@@ -23,6 +23,13 @@ let inte;
 let li;
 let elemento;
 let cantidadcarro;
+let cantidadelem;
+let encontrar2;
+let comparacion;
+let sup;
+let eliminar;
+let asumi;
+
 const modalcontainer = document.getElementById("modal-container");
 document.addEventListener('DOMContentLoaded', ()=>{
    fetchData()
@@ -75,11 +82,13 @@ function agregaralcarrito(imagen, nombre, precio){
       
       
    }
+   comparacion= carrocompra;
    for (let prodencarrito of carrocompra){
       carritomarkup += generateprodcarrito(prodencarrito.imagen,prodencarrito.nombre, prodencarrito.precio0);
       inte= prodencarrito.nombre
    }
    
+
    console.log(carrocompra)
    carroalamacenado = localStorage.setItem('carroalmacenado',JSON.stringify(carrocompra))
    recupercarro=  JSON.parse(localStorage.getItem('carroalmacenado'));
@@ -102,12 +111,15 @@ function agregaralcarrito(imagen, nombre, precio){
    }
    cantidadcarro.appendChild(li);
    console.log(cantidadtot)
+
 }
+recupercarro=  JSON.parse(localStorage.getItem('carroalmacenado'));
 
 
 
 
-vercarrito.addEventListener("click", () => {
+//vercarrito.addEventListener("click", () => {
+const dibujarcarrito = () =>{   
    modalcontainer.innerHTML = "";
    modalcontainer.style.display = "flex";
    recupercarro=  JSON.parse(localStorage.getItem('carroalmacenado'));
@@ -128,24 +140,48 @@ vercarrito.addEventListener("click", () => {
    });
    
    modalHeader.append(modalbutton);
-   
 
-   console.log(inte)
-   console.log("hola"+encontrar);
+   if(encontrar2 == true){
+      console.log(encontrar2);
+   }
+   
    for( el of recupercarro) {
       carritocontent= document.createElement("div");
       carritocontent.className = "modal-content";
       carritocontent.innerHTML = `
-      <h1 class="cantidade">Cantidad ${cantidadtot}</h1>
+      <button class="menos"><img src="../imagenes/menos.png" id="bmenos"></button>
+      <h3 class="cantidade">Cantidad<br>${cantidadelem}</h3>
+      <button class="mas"><img src="../imagenes/mas.png" id="bmas"></button>
       <img class="imagencarrito" src="${el.imagen}">
       <h1 class="nomprod">${el.nombre}</h1>
       <p class="preprod">${el.precio} </p>
+      <span class="delete-product" onclick="eliminarproducto('${el.nombre}')">✖️</span>
       `;
-      console.log(el.imagen,el.nombre,el.precio)
-      modalcontainer.append(carritocontent); 
-      
 
-   }
+      //console.log(el.imagen,el.nombre,el.precio)
+      modalcontainer.append(carritocontent); 
+
+      //let eliminar = carritocontent.querySelector(".delete-product");
+
+      //eliminar.addEventListener("click", ()=>{
+      //   eliminarproducto(el.nombre);
+         //console.log(el.nombre);
+      //});
+
+
+      //console.log(el)
+
+   
+      //eliminar = document.createElement("span");
+      //eliminar.innerText = "X";
+      //eliminar.className = "delete-product";
+      //carritocontent.append(eliminar);
+      
+      
+      //eliminar.addEventListener("click", eliminarproducto);
+      
+   };
+
 
    const total = recupercarro.reduce((acumula, el) => acumula + parseInt(el.precio, 10), 0);
    const totalcompra = document.createElement("div")
@@ -153,4 +189,39 @@ vercarrito.addEventListener("click", () => {
    totalcompra.innerHTML = `Total a pagar: ${total}`;
    modalcontainer.append(totalcompra);
    console.log(total);
-});
+};
+
+const eliminarproducto = (mm) =>{
+   const foundid =  recupercarro.find( (elemento) => elemento.nombre == mm);
+   console.log(foundid);
+   let ilm = recupercarro;
+   //console.log(ilm)
+
+   //recupercarro.delete.foundid
+   //console.log(recupercarro)
+   
+   //console.log(recupercarro);
+   let filtro = recupercarro.filter((carritoid)=>{ 
+      //console.log(recupercarro);
+   //localStorage.clear();
+   //carroalamacenado = localStorage.setItem('carroalmacenado',JSON.stringify(carrocompra));   
+   //modalcontainer.innerHTML = "";
+
+   return carritoid !== foundid ;
+   
+   });
+   console.log(filtro);
+   //recupercarro =filtro 
+   localStorage.clear();
+   carroalamacenado = localStorage.setItem('carroalmacenado',JSON.stringify(filtro))
+   console.log(recupercarro)
+   dibujarcarrito(recupercarro);
+ 
+   
+   
+};
+
+vercarrito.addEventListener("click", dibujarcarrito);
+
+
+
