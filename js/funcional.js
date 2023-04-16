@@ -210,8 +210,12 @@ const eliminarproducto = (mm) =>{
    return carritoid !== foundid ;
    
    });
+   cantidadtot -=1;
+   console.log(cantidadtot);
+   cantidadcarro.innerHTML = "";
+   cantidadcarro.innerHTML = cantidadtot ;
    console.log(filtro);
-   //recupercarro =filtro 
+    
    localStorage.clear();
    carroalamacenado = localStorage.setItem('carroalmacenado',JSON.stringify(filtro))
    console.log(recupercarro)
