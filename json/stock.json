@@ -1,13 +1,13 @@
 
 [
-    {"id":1, "nombre": "Tio Rico", "imagen": "../imagenes/productos/tiorico.jpg","cantidad": 10, "precio": 120000},
-    {"id":2, "nombre": "Monopoly", "imagen": "../imagenes/productos/monopoly.jpg","cantidad": 15, "precio": 130000},
-    {"id":3, "nombre": "Damas Chinas", "imagen": "../imagenes/productos/damaschinas.jpg", "cantidad": 12, "precio": 40000},
-    {"id":4, "nombre": "Ajedrez", "imagen": "../imagenes/productos/ajedrez.jpg","cantidad": 5, "precio": 50000},
-    {"id":5, "nombre": "Serpientes y Escaleras", "imagen": "../imagenes/productos/serpientesyescaleras.jpg","cantidad": 7, "precio": 35000},
-    {"id":6, "nombre": "Operando", "imagen": "../imagenes/productos/operando.jpg", "cantidad": 3, "precio": 125000},
-    {"id":7, "nombre": "Clue", "imagen": "../imagenes/productos/clue.jpg", "cantidad": 3, "precio": 120000},
-    {"id":8, "nombre": "Batalla Naval", "imagen": "../imagenes/productos/batallanaval.jpg", "cantidad": 4, "precio": 100000},
-    {"id":9, "nombre": "Rumy", "imagen": "../imagenes/productos/rumy.jpg", "cantidad": 6, "precio": 110000},
-    {"id":10, "nombre": "Jenga", "imagen": "../imagenes/productos/jenga.jpg", "cantidad": 9, "precio": 90000}
+    {"id":1, "nombre": "Tio Rico", "imagen": "../imagenes/productos/tiorico.jpg","cantidad": 1, "precio": 120000},
+    {"id":2, "nombre": "Monopoly", "imagen": "../imagenes/productos/monopoly.jpg","cantidad": 1, "precio": 130000},
+    {"id":3, "nombre": "Damas Chinas", "imagen": "../imagenes/productos/damaschinas.jpg", "cantidad": 1, "precio": 40000},
+    {"id":4, "nombre": "Ajedrez", "imagen": "../imagenes/productos/ajedrez.jpg","cantidad": 1, "precio": 50000},
+    {"id":5, "nombre": "Serpientes y Escaleras", "imagen": "../imagenes/productos/serpientesyescaleras.jpg","cantidad": 1, "precio": 35000},
+    {"id":6, "nombre": "Operando", "imagen": "../imagenes/productos/operando.jpg", "cantidad": 1, "precio": 125000},
+    {"id":7, "nombre": "Clue", "imagen": "../imagenes/productos/clue.jpg", "cantidad": 1, "precio": 120000},
+    {"id":8, "nombre": "Batalla Naval", "imagen": "../imagenes/productos/batallanaval.jpg", "cantidad": 1, "precio": 100000},
+    {"id":9, "nombre": "Rumy", "imagen": "../imagenes/productos/rumy.jpg", "cantidad": 1, "precio": 110000},
+    {"id":10, "nombre": "Jenga", "imagen": "../imagenes/productos/jenga.jpg", "cantidad": 1, "precio": 90000}
 ]
