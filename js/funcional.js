@@ -233,6 +233,10 @@ const dibujarcarrito = () =>{
 };
 
 const eliminarproducto = (mm) =>{
+   Swal.fire(
+      'Ha eliminado el producto del carrito', '',
+       'warning',
+   )
    const foundid =  recupercarro.find( (elemento) => elemento.nombre == mm);
    console.log(foundid);
    let ilm = recupercarro;
